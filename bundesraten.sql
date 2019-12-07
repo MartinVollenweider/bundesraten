@@ -78,7 +78,7 @@ CREATE TABLE `tipps` (
 
 CREATE TABLE `user` (
   `id` int(11) UNSIGNED NOT NULL,
-  `password` varchar(24) NOT NULL DEFAULT '',
+  `password` varchar(32) NOT NULL DEFAULT '',
   `email` varchar(100) NOT NULL DEFAULT '',
   `firstname` varchar(100) NOT NULL DEFAULT '',
   `lastname` varchar(100) NOT NULL DEFAULT '',

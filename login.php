@@ -29,7 +29,7 @@ if(isset($_POST['login_submit'])){
 
   if($login_submit_valid){
 
-    $result = login($email , $password);
+    $result = login($email , md5($password));
     if($result){
       $user = mysqli_fetch_assoc($result);
       $_SESSION['userid'] = $user['id'];

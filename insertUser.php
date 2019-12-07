@@ -66,7 +66,7 @@ if($register_submit_valid){
   if(does_email_exist($email)){
     $msg = "Diese E-Mail-Adresse ist bereits vergeben.</br>";
   }else{
-    $result = register($password, $email, $firstname, $lastname, $year, $class);
+    $result = register(md5($password), $email, $firstname, $lastname, $year, $class);
 
     // Meldung für den User zusammenstellen
     if($result){
