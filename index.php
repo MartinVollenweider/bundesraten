@@ -2,6 +2,7 @@
 // ------------------- CONTROLLER -------------------
 session_start();
 require_once('system/data.php');
+
 if(isset($_SESSION['userid'])){
   $user = mysqli_fetch_assoc(get_user_by_id($_SESSION['userid']));
   $user_id = $user['id'];
@@ -48,6 +49,19 @@ if(isset($_SESSION['userid'])){
         <div class="alert alert-info msg" role="alert">
           Du hast deinen Tipp bereits abgegeben.
         </div>
+        <div id="tipped">
+          <h1>Dein Tipp</h1>
+          <ul>
+            <li>Tipp 1: <b><span id="tipp1"></span></b> mit <span id="tipp1stimmen"></span> Stimmen</li>
+            <li>Tipp 2: <b><span id="tipp2"></span></b> mit <span id="tipp2stimmen"></span> Stimmen</li>
+            <li>Tipp 3: <b><span id="tipp3"></span></b> mit <span id="tipp3stimmen"></span> Stimmen</li>
+            <li>Tipp 4: <b><span id="tipp4"></span></b> mit <span id="tipp4stimmen"></span> Stimmen</li>
+            <li>Tipp 5: <b><span id="tipp5"></span></b> mit <span id="tipp5stimmen"></span> Stimmen</li>
+            <li>Tipp 6: <b><span id="tipp6"></span></b> mit <span id="tipp6stimmen"></span> Stimmen</li>
+            <li>Tipp 7: <b><span id="tipp7"></span></b> mit <span id="tipp7stimmen"></span> Stimmen</li>
+          </ul>
+        </div>
+        
       <?php else: ?>
 
         <h1>Tipp abgeben</h1>

@@ -68,7 +68,12 @@
 	/* Tippen
 	/* *******************************************************************************************************/
 	function tipp($user_id, $tipp1, $tipp1stimmen, $tipp2, $tipp2stimmen, $tipp3, $tipp3stimmen, $tipp4, $tipp4stimmen, $tipp5, $tipp5stimmen, $tipp6, $tipp6stimmen, $tipp7, $tipp7stimmen){
-    $sql = "INSERT INTO tipps (user_id, tipp1, tipp1stimmen, tipp2, tipp2stimmen, tipp3, tipp3stimmen, tipp4, tipp4stimmen, tipp5, tipp5stimmen, tipp6, tipp6stimmen, tipp7, tipp7stimmen) VALUES ('$user_id', '$tipp1', '$tipp1stimmen', '$tipp2', '$tipp2stimmen', '$tipp3', '$tipp3stimmen', '$tipp4', '$tipp4stimmen', '$tipp5', '$tipp5stimmen', '$tipp6', '$tipp6stimmen', '$tipp7', '$tipp7stimmen');";
+		$sql = "INSERT INTO tipps (user_id, tipp1, tipp1stimmen, tipp2, tipp2stimmen, tipp3, tipp3stimmen, tipp4, tipp4stimmen, tipp5, tipp5stimmen, tipp6, tipp6stimmen, tipp7, tipp7stimmen) VALUES ('$user_id', '$tipp1', '$tipp1stimmen', '$tipp2', '$tipp2stimmen', '$tipp3', '$tipp3stimmen', '$tipp4', '$tipp4stimmen', '$tipp5', '$tipp5stimmen', '$tipp6', '$tipp6stimmen', '$tipp7', '$tipp7stimmen');";
+		return get_result($sql);
+	}
+
+	function get_tipp($user_id){
+		$sql = "SELECT * FROM tipps WHERE user_id = '$user_id';";
 		return get_result($sql);
 	}
 
