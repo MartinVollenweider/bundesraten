@@ -71,7 +71,7 @@ if($register_submit_valid){
     // Meldung für den User zusammenstellen
     if($result){
       unset($_POST);
-      $msg = "Du hast dich erfolgreich registriert!</br>";
+      $msg = "Du hast dich erfolgreich registriert!</br>Weiter <a href='index.php'>zum Ratespiel</a>";
     }else{
       $msg .= "Es gibt ein Problem mit der Datenbankverbindung.</br>";
     }

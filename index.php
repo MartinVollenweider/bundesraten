@@ -61,11 +61,11 @@ if(isset($_SESSION['userid'])){
             <li>Tipp 7: <b><span id="tipp7"></span></b> mit <span id="tipp7stimmen"></span> Stimmen</li>
           </ul>
         </div>
-        
+
       <?php else: ?>
 
         <h1>Tipp abgeben</h1>
-        <p>Hinweis: Du kannst nur 1x deine Tipps abgeben. Wähle weise.</p>
+        <p>Hinweis: Du kannst nur <strong>1x</strong> deine Tipps abgeben. Wähle weise.</p>
 
         Folgende Bundesräte stehen zur Wahl:
         <ul>
@@ -143,7 +143,7 @@ if(isset($_SESSION['userid'])){
               </div>
             </div>
           </div>
-          
+
           <div id="show" class="alert alert-info msg" role="alert"></div>
 
           <button type="submit" name="tipp_submit" class="btn btn-primary" value="einloggen">Tipps verbindlich abgeben!</button>
