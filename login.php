@@ -20,8 +20,8 @@ if(isset($_POST['login_submit'])){
     $login_submit_valid = false;
   }
 
-  if(!empty($_POST['password'])){
-    $password = $_POST['password'];
+  if(!empty($_POST['passwort'])){
+    $passwort = $_POST['passwort'];
   }else{
     $msg .= "Bitte gib dein Passwort ein.<br>";
     $login_submit_valid = false;
@@ -29,7 +29,7 @@ if(isset($_POST['login_submit'])){
 
   if($login_submit_valid){
 
-    $result = login($email , md5($password));
+    $result = login($email , md5($passwort));
     if($result){
       $user = mysqli_fetch_assoc($result);
       $_SESSION['userid'] = $user['id'];
@@ -87,8 +87,8 @@ if(isset($_POST['login_submit'])){
           <input type="email" name="email" class="form-control" id="id_email">
         </div>
         <div class="form-group">
-          <label for="id_password">Passwort: </label>
-          <input type="password" name="password" class="form-control" id="id_password">
+          <label for="id_passwort">Passwort: </label>
+          <input type="passwort" name="passwort" class="form-control" id="id_passwort">
         </div>
         <button type="submit" name="login_submit" class="btn btn-primary" value="einloggen">Anmelden</button>
       </form>

@@ -78,12 +78,12 @@ CREATE TABLE `tipps` (
 
 CREATE TABLE `user` (
   `id` int(11) UNSIGNED NOT NULL,
-  `password` varchar(32) NOT NULL DEFAULT '',
+  `passwort` varchar(32) NOT NULL DEFAULT '',
   `email` varchar(100) NOT NULL DEFAULT '',
-  `firstname` varchar(100) NOT NULL DEFAULT '',
-  `lastname` varchar(100) NOT NULL DEFAULT '',
-  `year` varchar(5) NOT NULL DEFAULT '0',
-  `class` varchar(2) NOT NULL DEFAULT ''
+  `vorname` varchar(100) NOT NULL DEFAULT '',
+  `nachname` varchar(100) NOT NULL DEFAULT '',
+  `jahr` varchar(5) NOT NULL DEFAULT '0',
+  `klasse` varchar(2) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

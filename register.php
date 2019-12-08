@@ -58,31 +58,31 @@ $log_in_out_text = "Anmelden";
         </div>
         <!-- Passwort und Passwortbestätigung müssen jedesmal neu eingegeben werden -->
         <div class="form-group">
-          <label for="id_password">Passwort: </label>
-          <input type="password" name="password" class="form-control" id="id_password">
+          <label for="id_passwort">Passwort: </label>
+          <input type="passwort" name="passwort" class="form-control" id="id_passwort">
         </div>
         <div class="form-group">
-          <label for="id_password_confirm">Passwortbestätigung: </label>
-          <input type="password" name="password_confirm" class="form-control" id="id_password_confirm">
+          <label for="id_passwort_confirm">Passwortbestätigung: </label>
+          <input type="passwort" name="passwort_confirm" class="form-control" id="id_passwort_confirm">
         </div>
         <div class="form-group">
-          <label for="id_firstname">Vorname: </label>
-          <input type="text" name="firstname" class="form-control" id="id_firstname">
+          <label for="id_vorname">Vorname: </label>
+          <input type="text" name="vorname" class="form-control" id="id_vorname">
         <div class="form-group">
-          <label for="id_lastname">Nachname: </label>
-          <input type="text" name="lastname" class="form-control" id="id_lastname">
+          <label for="id_nachname">Nachname: </label>
+          <input type="text" name="nachname" class="form-control" id="id_nachname">
         </div>
         <div class="form-group">
-          <label for="id_year">Studienjahrgang: </label>
-              <select class="form-control" id="id_year" name="year">
+          <label for="id_jahr">Studienjahrgang: </label>
+              <select class="form-control" id="id_jahr" name="jahr">
                 <option>mmp17</option>
                 <option>mmp18</option>
                 <option>mmp19</option>
               </select>
         </div>
         <div class="form-group">
-          <label for="id_class">Klasse: </label>
-              <select class="form-control" id="id_class" name="class">
+          <label for="id_klasse">Klasse: </label>
+              <select class="form-control" id="id_klasse" name="klasse">
                 <option>c1</option>
                 <option>c2</option>
                 <option>b</option>

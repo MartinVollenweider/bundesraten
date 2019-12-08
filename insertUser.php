@@ -21,41 +21,41 @@ if(isset($email) && !preg_match($muster, $email)) {
   $register_submit_valid = false;
 }
 
-if(!empty($_POST['password'])){
-  $password = $_POST['password'];
+if(!empty($_POST['passwort'])){
+  $passwort = $_POST['passwort'];
 }else{
   $msg .= "Bitte gib dein Passwort ein.<br>";
   $register_submit_valid = false;
 }
 
-if(empty($_POST['password_confirm']) || $password != $_POST['password_confirm']){
+if(empty($_POST['passwort_confirm']) || $passwort != $_POST['passwort_confirm']){
   $msg .= "Passwort und Passwortbestätigung stimmen nicht überein.<br>";
   $register_submit_valid = false;
 }
 
-if(!empty($_POST['firstname'])){
-  $firstname = $_POST['firstname'];
+if(!empty($_POST['vorname'])){
+  $vorname = $_POST['vorname'];
 }else{
   $msg .= "Bitte gib deinen Vornamen ein.<br>";
   $register_submit_valid = false;
 }
 
-if(!empty($_POST['lastname'])){
-  $lastname = $_POST['lastname'];
+if(!empty($_POST['nachname'])){
+  $nachname = $_POST['nachname'];
 }else{
   $msg .= "Bitte gib deinen Nachnamen ein.<br>";
   $register_submit_valid = false;
 }
 
-if(!empty($_POST['year'])){
-  $year = $_POST['year'];
+if(!empty($_POST['jahr'])){
+  $jahr = $_POST['jahr'];
 }else{
   $msg .= "Bitte gib deinen Studienjahrgang ein.<br>";
   $register_submit_valid = false;
 }
 
-if(!empty($_POST['class'])){
-  $class = $_POST['class'];
+if(!empty($_POST['klasse'])){
+  $klasse = $_POST['klasse'];
 }else{
   $msg .= "Bitte gib deine Klasse ein.<br>";
   $register_submit_valid = false;
@@ -66,7 +66,7 @@ if($register_submit_valid){
   if(does_email_exist($email)){
     $msg = "Diese E-Mail-Adresse ist bereits vergeben.</br>";
   }else{
-    $result = register(md5($password), $email, $firstname, $lastname, $year, $class);
+    $result = register(md5($passwort), $email, $vorname, $nachname, $jahr, $klasse);
 
     // Meldung für den User zusammenstellen
     if($result){
