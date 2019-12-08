@@ -63,14 +63,8 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
         </div>
 
       <?php } else { ?>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         <!-- START Exposition Bundesräte -->
-=======
->>>>>>> 24a71152e4b55c9bd9e276c0cc0b05078b49a8f6
-=======
->>>>>>> 24a71152e4b55c9bd9e276c0cc0b05078b49a8f6
 
         <h1>Tipp abgeben</h1>
 
@@ -281,21 +275,9 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
 
           <!-- ENDE Tippformular -->
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <?php endif; ?>
-      </section>
-    </div>
-=======
-=======
->>>>>>> 24a71152e4b55c9bd9e276c0cc0b05078b49a8f6
-=======
->>>>>>> 24a71152e4b55c9bd9e276c0cc0b05078b49a8f6
       <?php }; ?>
     </section>
   </div>
->>>>>>> 24a71152e4b55c9bd9e276c0cc0b05078b49a8f6
 
   </body>
   </html>
