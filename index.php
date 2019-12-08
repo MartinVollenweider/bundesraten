@@ -3,7 +3,7 @@
 session_start();
 require_once('system/data.php');
 
-if(isset($_SESSION['userid'])){
+if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
   $user = mysqli_fetch_assoc(get_user_by_id($_SESSION['userid']));
   $user_id = $user['id'];
 }else{
@@ -64,94 +64,220 @@ if(isset($_SESSION['userid'])){
 
       <?php else: ?>
 
+        <!-- START Exposition Bundesräte -->
+
         <h1>Tipp abgeben</h1>
-        <p>Hinweis: Du kannst nur <strong>1x</strong> deine Tipps abgeben. Wähle weise.</p>
 
-        Folgende Bundesräte stehen zur Wahl:
-        <ul>
-          <li>Viola Amherd (bisher)</li>
-          <li>Guy Parmelin (bisher)</li>
-          <li>Simonetta Sommaruga (bisher)</li>
-          <li>Ueli Maurer (bisher)</li>
-          <li>Alain Berset (bisher)</li>
-          <li>Ignazio Cassis (bisher)</li>
-          <li>Karin Keller-Sutter (bisher)</li>
-          <li>Regula Rytz (neu)</li>
-        </ul>
+        <p class="mb-3"> Folgende Kandidatinnen und Kandidaten stehen zur Wahl: </p>
 
-        <form action="insertTipp.php" method="post" id="tipp">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="id_tipp1">Tipp #1: </label>
-                <input type="text" name="tipp1" class="form-control" id="id_tipp1" required>
-              </div>
-              <div class="form-group">
-                <label for="id_tipp2">Tipp #2: </label>
-                <input type="text" name="tipp2" class="form-control" id="id_tipp2" required>
-              </div>
-              <div class="form-group">
-                <label for="id_tipp3">Tipp #3: </label>
-                <input type="text" name="tipp3" class="form-control" id="id_tipp3" required>
-              </div>
-              <div class="form-group">
-                <label for="id_tipp4">Tipp #4: </label>
-                <input type="text" name="tipp4" class="form-control" id="id_tipp4" required>
-              </div>
-              <div class="form-group">
-                <label for="id_tipp5">Tipp #5: </label>
-                <input type="text" name="tipp5" class="form-control" id="id_tipp5" required>
-              </div>
-              <div class="form-group">
-                <label for="id_tipp6">Tipp #6: </label>
-                <input type="text" name="tipp6" class="form-control" id="id_tipp6" required>
-              </div>
-              <div class="form-group">
-                <label for="id_tipp7">Tipp #7: </label>
-                <input type="text" name="tipp7" class="form-control" id="id_tipp7" required>
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/amherd.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Viola Amherd</h5>
+                  <p>Bundesrätin seit 2011, CVP</p>
+                </div>
               </div>
 
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #1: </label>
-                <input type="number" min="0" max="246" name="tipp1stimmen" class="form-control" id="id_tipp1stimmen" required>
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/parmelin.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Guy Parmelin</h5>
+                  <p>Bundesrat seit 2015, SVP</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #2: </label>
-                <input type="number" min="0" max="246" name="tipp2stimmen" class="form-control" id="id_tipp2stimmen" required>
+
+            </div>
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/sommaruga.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Simonetta Sommaruga</h5>
+                  <p>Bundesrätin seit 2010, SP</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #3: </label>
-                <input type="number" min="0" max="246" name="tipp3stimmen" class="form-control" id="id_tipp3stimmen" required>
+
+            </div>
+
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/maurer.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ueli Maurer</h5>
+                  <p>Bundesrat seit 2009, SVP</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #4: </label>
-                <input type="number" min="0" max="246" name="tipp4stimmen" class="form-control" id="id_tipp4stimmen" required>
+
+            </div>
+
+          </div>
+
+
+          <div class="row mb-5">
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/berset.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Alain Berset</h5>
+                  <p>Bundesrat seit 2011, SP</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #5: </label>
-                <input type="number" min="0" max="246" name="tipp5stimmen" class="form-control" id="id_tipp5stimmen" required>
+
+            </div>
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/cassis.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ignazio Cassis</h5>
+                  <p>Bundesrat seit 2017, FDP</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #6: </label>
-                <input type="number" min="0" max="246" name="tipp6stimmen" class="form-control" id="id_tipp6stimmen" required>
+
+            </div>
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/kellersutter.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Karin Keller-Sutter</h5>
+                  <p>Bundesrätin seit 2018, FDP</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #7: </label>
-                <input type="number" min="0" max="246" name="tipp7stimmen" class="form-control" id="id_tipp7stimmen" required>
+
+            </div>
+
+            <div class="col-sm-3">
+
+              <div class="card">
+                <img src="img/rytz.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Regula Rytz</h5>
+                  <p>Nationalrätin und Präsidentin der Grünen</p>
+                </div>
               </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ENDE Exposition Bundesräte -->
+
+
+        <!-- START Gameinfo -->
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-5">
+
+              <div id="" class="alert alert-info msg" role="alert"> Trage hier deine Tipps ein. Es können ebenfalls Personen gewählt werden, die nicht kandidieren. </div>
+
             </div>
           </div>
 
-          <div id="show" class="alert alert-info msg" role="alert"></div>
+          <div class="col-md-6">
+            <div class="form-group mb-5">
 
-          <button type="submit" name="tipp_submit" class="btn btn-primary" value="einloggen">Tipps verbindlich abgeben!</button>
-        </form>
+              <div id="" class="alert alert-info msg" role="alert"> Jede Person kann mit 0-246 Stimmen der National- und Ständeräte gewählt werden. </div>
 
-      <?php endif; ?>
-    </section>
-  </div>
+            </div>
+          </div>
 
-</body>
-</html>
+        </div>
+
+        <!-- ENDE Gameinfo -->
+
+        <!-- START Tippformular -->
+
+        <form action="insertTipp.php" method="post" id="tipp">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="id_tipp1">Tipp #1: </label>
+                        <input type="text" name="tipp1" class="form-control" id="id_tipp1" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp2">Tipp #2: </label>
+                        <input type="text" name="tipp2" class="form-control" id="id_tipp2" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp3">Tipp #3: </label>
+                        <input type="text" name="tipp3" class="form-control" id="id_tipp3" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp4">Tipp #4: </label>
+                        <input type="text" name="tipp4" class="form-control" id="id_tipp4" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp5">Tipp #5: </label>
+                        <input type="text" name="tipp5" class="form-control" id="id_tipp5" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp6">Tipp #6: </label>
+                        <input type="text" name="tipp6" class="form-control" id="id_tipp6" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp7">Tipp #7: </label>
+                        <input type="text" name="tipp7" class="form-control" id="id_tipp7" required>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #1: </label>
+                        <input type="number" min="0" max="246" name="tipp1stimmen" class="form-control" id="id_tipp1stimmen" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #2: </label>
+                        <input type="number" min="0" max="246" name="tipp2stimmen" class="form-control" id="id_tipp2stimmen" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #3: </label>
+                        <input type="number" min="0" max="246" name="tipp3stimmen" class="form-control" id="id_tipp3stimmen" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #4: </label>
+                        <input type="number" min="0" max="246" name="tipp4stimmen" class="form-control" id="id_tipp4stimmen" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #5: </label>
+                        <input type="number" min="0" max="246" name="tipp5stimmen" class="form-control" id="id_tipp5stimmen" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #6: </label>
+                        <input type="number" min="0" max="246" name="tipp6stimmen" class="form-control" id="id_tipp6stimmen" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_tipp1stimmen">Anzahl Stimmen für Tipp #7: </label>
+                        <input type="number" min="0" max="246" name="tipp7stimmen" class="form-control" id="id_tipp7stimmen" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="" class="alert alert-danger msg" role="alert">   <p>Du kannst nur <strong>1x</strong> deine Tipps abgeben. Wähle weise.</p></div>
+
+                  <div id="show" class="alert alert-info msg" role="alert"></div>
+
+                  <button type="submit" name="tipp_submit" class="btn btn-primary mb-5" value="einloggen">Tipps verbindlich abgeben!</button>
+                </form>
+
+
+          <!-- ENDE Tippformular -->
+
+        <?php endif; ?>
+      </section>
+    </div>
+
+  </body>
+  </html>

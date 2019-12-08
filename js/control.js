@@ -35,19 +35,19 @@ function insertUserFunc(ereignis) {
     method: 'POST',
     body: data
   })
-    .then(function (response) {
-      return response.text()
-    })
-    .then(function (data) {
-      /*  Erhalte als Antwort alle Objekte
-          und ersetze das aktuelle HTML mit dem neuen vom Server */
-      console.log(data);
-      document.querySelector('#show').innerHTML = data;
-      document.querySelector('#show').style.visibility = 'visible';
-    })
-    .catch(function (error) {
-      console.log('Request failed', error);
-    }) // Ende fetch
+  .then(function (response) {
+    return response.text()
+  })
+  .then(function (data) {
+    /*  Erhalte als Antwort alle Objekte
+    und ersetze das aktuelle HTML mit dem neuen vom Server */
+    console.log(data);
+    document.querySelector('#show').innerHTML = data;
+    document.querySelector('#show').style.visibility = 'visible';
+  })
+  .catch(function (error) {
+    console.log('Request failed', error);
+  }) // Ende fetch
 }  // Ende insertUserFunc
 
 // Einen neuen Tipp einfügen
@@ -66,18 +66,28 @@ function insertTippFunc(ereignis) {
     method: 'POST',
     body: data
   })
-    .then(function (response) {
-      return response.text()
-    })
-    .then(function (data) {
-      /*  Erhalte als Antwort alle Objekte
-          und ersetze das aktuelle HTML mit dem neuen vom Server */
-      document.querySelector('#show').innerHTML = data;
-      document.querySelector('#show').style.visibility = 'visible';
-    })
-    .catch(function (error) {
-      console.log('Request failed', error);
-    }) // Ende fetch
+  .then(function (response) {
+    return response.text()
+  })
+  .then(function (data) {
+    /*  Erhalte als Antwort alle Objekte
+    und ersetze das aktuelle HTML mit dem neuen vom Server */
+    document.querySelector('#show').innerHTML = data;
+    document.querySelector('#show').style.visibility = 'visible';
+
+
+    // Seite neu laden, damit Tipp gleich angezeigt wird.
+
+    if(data == "Du hast deinen Tipp erfolgreich abgegeben!"){
+
+      location.reload();
+
+    }
+
+  })
+  .catch(function (error) {
+    console.log('Request failed', error);
+  }) // Ende fetch
 }  // Ende insertTippFunc
 
 // Einen Tipp holen
@@ -89,31 +99,31 @@ function showTippFunc() {
   fetch(url, {
     method: 'GET'
   })
-    .then(function (response) {
-      console.log(response);
-      return response.text()
-    })
-    .then(function (data) {
-      /*  Erhalte als Antwort alle Objekte
-          und ersetze das aktuelle HTML mit dem neuen vom Server */
-      let tipp = JSON.parse(data)
+  .then(function (response) {
+    console.log(response);
+    return response.text()
+  })
+  .then(function (data) {
+    /*  Erhalte als Antwort alle Objekte
+    und ersetze das aktuelle HTML mit dem neuen vom Server */
+    let tipp = JSON.parse(data)
 
-      document.querySelector('#tipp1').innerHTML = tipp.tipp1;
-      document.querySelector('#tipp1stimmen').innerHTML = tipp.tipp1stimmen;
-      document.querySelector('#tipp2').innerHTML = tipp.tipp2;
-      document.querySelector('#tipp2stimmen').innerHTML = tipp.tipp2stimmen;
-      document.querySelector('#tipp3').innerHTML = tipp.tipp3;
-      document.querySelector('#tipp3stimmen').innerHTML = tipp.tipp3stimmen;
-      document.querySelector('#tipp4').innerHTML = tipp.tipp4;
-      document.querySelector('#tipp4stimmen').innerHTML = tipp.tipp4stimmen;
-      document.querySelector('#tipp5').innerHTML = tipp.tipp5;
-      document.querySelector('#tipp5stimmen').innerHTML = tipp.tipp5stimmen;
-      document.querySelector('#tipp6').innerHTML = tipp.tipp6;
-      document.querySelector('#tipp6stimmen').innerHTML = tipp.tipp6stimmen;
-      document.querySelector('#tipp7').innerHTML = tipp.tipp7;
-      document.querySelector('#tipp7stimmen').innerHTML = tipp.tipp7stimmen;
-    })
-    .catch(function (error) {
-      console.log('Request failed', error);
-    }) // Ende fetch
+    document.querySelector('#tipp1').innerHTML = tipp.tipp1;
+    document.querySelector('#tipp1stimmen').innerHTML = tipp.tipp1stimmen;
+    document.querySelector('#tipp2').innerHTML = tipp.tipp2;
+    document.querySelector('#tipp2stimmen').innerHTML = tipp.tipp2stimmen;
+    document.querySelector('#tipp3').innerHTML = tipp.tipp3;
+    document.querySelector('#tipp3stimmen').innerHTML = tipp.tipp3stimmen;
+    document.querySelector('#tipp4').innerHTML = tipp.tipp4;
+    document.querySelector('#tipp4stimmen').innerHTML = tipp.tipp4stimmen;
+    document.querySelector('#tipp5').innerHTML = tipp.tipp5;
+    document.querySelector('#tipp5stimmen').innerHTML = tipp.tipp5stimmen;
+    document.querySelector('#tipp6').innerHTML = tipp.tipp6;
+    document.querySelector('#tipp6stimmen').innerHTML = tipp.tipp6stimmen;
+    document.querySelector('#tipp7').innerHTML = tipp.tipp7;
+    document.querySelector('#tipp7stimmen').innerHTML = tipp.tipp7stimmen;
+  })
+  .catch(function (error) {
+    console.log('Request failed', error);
+  }) // Ende fetch
 }  // Ende showTippFunc

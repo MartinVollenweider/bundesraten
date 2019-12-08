@@ -59,11 +59,11 @@ $log_in_out_text = "Anmelden";
         <!-- Passwort und Passwortbestätigung müssen jedesmal neu eingegeben werden -->
         <div class="form-group">
           <label for="id_passwort">Passwort: </label>
-          <input type="passwort" name="passwort" class="form-control" id="id_passwort">
+          <input type="password" name="passwort" class="form-control" id="id_passwort">
         </div>
         <div class="form-group">
           <label for="id_passwort_confirm">Passwortbestätigung: </label>
-          <input type="passwort" name="passwort_confirm" class="form-control" id="id_passwort_confirm">
+          <input type="password" name="passwort_confirm" class="form-control" id="id_passwort_confirm">
         </div>
         <div class="form-group">
           <label for="id_vorname">Vorname: </label>

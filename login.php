@@ -88,7 +88,7 @@ if(isset($_POST['login_submit'])){
         </div>
         <div class="form-group">
           <label for="id_passwort">Passwort: </label>
-          <input type="passwort" name="passwort" class="form-control" id="id_passwort">
+          <input type="password" name="passwort" class="form-control" id="id_passwort">
         </div>
         <button type="submit" name="login_submit" class="btn btn-primary" value="einloggen">Anmelden</button>
       </form>
