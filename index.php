@@ -45,7 +45,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
     </nav>
 
     <section class="content">
-      <?php if (does_tipp_exist($user_id)): ?>
+      <?php if (does_tipp_exist($user_id)) { ?>
         <div class="alert alert-info msg" role="alert">
           Du hast deinen Tipp bereits abgegeben.
         </div>
@@ -62,7 +62,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
           </ul>
         </div>
 
-      <?php else: ?>
+      <?php } else { ?>
 
         <!-- START Exposition Bundesräte -->
 
@@ -275,9 +275,15 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
 
           <!-- ENDE Tippformular -->
 
+<<<<<<< HEAD
         <?php endif; ?>
       </section>
     </div>
+=======
+      <?php }; ?>
+    </section>
+  </div>
+>>>>>>> 24a71152e4b55c9bd9e276c0cc0b05078b49a8f6
 
   </body>
   </html>
