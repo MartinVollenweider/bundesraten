@@ -83,7 +83,7 @@
 	function get_the_resultate(){
 		$sql = "SELECT * FROM resultate;";
 		$result = get_result($sql);
-		return mysqli_fetch_assoc($result);
+		return mysqli_fetch_array($result);
 	}
 
 	function get_all_tipps($class = "*"){
