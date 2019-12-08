@@ -3,7 +3,7 @@
 session_start();
 require_once('system/data.php');
 
-if(isset($_SESSION['userid'])){
+if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
   $user = mysqli_fetch_assoc(get_user_by_id($_SESSION['userid']));
   $user_id = $user['id'];
 }else{
