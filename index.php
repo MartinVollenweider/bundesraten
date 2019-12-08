@@ -45,7 +45,7 @@ if(isset($_SESSION['userid'])){
     </nav>
 
     <section class="content">
-      <?php if (does_tipp_exist($user_id)): ?>
+      <?php if (does_tipp_exist($user_id)) { ?>
         <div class="alert alert-info msg" role="alert">
           Du hast deinen Tipp bereits abgegeben.
         </div>
@@ -62,7 +62,7 @@ if(isset($_SESSION['userid'])){
           </ul>
         </div>
 
-      <?php else: ?>
+      <?php } else { ?>
 
         <h1>Tipp abgeben</h1>
         <p>Hinweis: Du kannst nur <strong>1x</strong> deine Tipps abgeben. Wähle weise.</p>
@@ -149,7 +149,7 @@ if(isset($_SESSION['userid'])){
           <button type="submit" name="tipp_submit" class="btn btn-primary" value="einloggen">Tipps verbindlich abgeben!</button>
         </form>
 
-      <?php endif; ?>
+      <?php }; ?>
     </section>
   </div>
 
