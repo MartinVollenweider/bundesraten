@@ -200,7 +200,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
 
         <!-- START Tippformular -->
 
-        <form action="insertTipp.php" method="post" id="tipp">
+        <form action="" method="post" id="tipp">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
