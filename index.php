@@ -78,7 +78,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
                 <img src="img/amherd.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Viola Amherd</h5>
-                  <p>Bundesrätin seit 2011, CVP</p>
+                  <p>Bundesrätin seit 2019, CVP/VS</p>
                 </div>
               </div>
 
@@ -89,7 +89,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
                 <img src="img/parmelin.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Guy Parmelin</h5>
-                  <p>Bundesrat seit 2015, SVP</p>
+                  <p>Bundesrat seit 2016, SVP/VD</p>
                 </div>
               </div>
 
@@ -100,7 +100,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
                 <img src="img/sommaruga.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Simonetta Sommaruga</h5>
-                  <p>Bundesrätin seit 2010, SP</p>
+                  <p>Bundesrätin seit 2010, SP/BE</p>
                 </div>
               </div>
 
@@ -112,7 +112,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
                 <img src="img/maurer.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Ueli Maurer</h5>
-                  <p>Bundesrat seit 2009, SVP</p>
+                  <p>Bundesrat seit 2009, SVP/ZH</p>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
                 <img src="img/berset.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Alain Berset</h5>
-                  <p>Bundesrat seit 2011, SP</p>
+                  <p>Bundesrat seit 2012, SP/FR</p>
                 </div>
               </div>
 
@@ -139,7 +139,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
                 <img src="img/cassis.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Ignazio Cassis</h5>
-                  <p>Bundesrat seit 2017, FDP</p>
+                  <p>Bundesrat seit 2017, FDP/TI</p>
                 </div>
               </div>
 
@@ -150,7 +150,7 @@ if(isset($_SESSION['userid']) && time() < strtotime('2019-12-11 08:00')){
                 <img src="img/kellersutter.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Karin Keller-Sutter</h5>
-                  <p>Bundesrätin seit 2018, FDP</p>
+                  <p>Bundesrätin seit 2019, FDP/SG</p>
                 </div>
               </div>
 
