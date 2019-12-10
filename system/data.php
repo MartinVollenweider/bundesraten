@@ -80,14 +80,14 @@
 		return get_result($sql);
 	}
 
-	function get_the_resultate(){
-		$sql = "SELECT * FROM resultate;";
+	function get_resultate(){
+		$sql = "SELECT * FROM resultate WHERE id = '1';";
 		$result = get_result($sql);
-		return mysqli_fetch_array($result);
+		return mysqli_fetch_row($result);
 	}
 
-	function get_all_tipps($class = "*"){
-		$sql = "SELECT tipps.*, firstname, lastname, year, class FROM tipps LEFT JOIN user ON tipps.user_id = user.id;";
+	function get_all_tipps(){
+		$sql = "SELECT * FROM tipps";
 		return get_result($sql);
 	}
 

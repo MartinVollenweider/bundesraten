@@ -2,28 +2,30 @@
 // ---------------------- CONTROLLER ----------------------
 session_start();
 require_once('system/data.php');
+error_reporting(E_WARNING);
 
-$class = mysqli_real_escape_string(get_db_connection(), $_GET['class']);
-$year = mysqli_real_escape_string(get_db_connection(), $_GET['year']);
-
+// Hole alle Tipps aus der Datenbank
 $tipps = get_all_tipps();
-$resultate = get_the_resultate();
+
+// Lese die Resultate aus der Datenbank
+$resultate = get_resultate();
 
 // Wandle die Resultate in einen Array im folgenden Format um:
 // array( 'Guy Parmelin' => 135, 'Alain Berset' => 150)
-$resultate_assoc = make_assoc_array($resultate, 0, 14);
+$resultate_assoc = make_assoc_array($resultate, 1);
 
 // Bereite einen Array für die Rangliste vor
-$ranking = array();
+$rangliste = array();
 
-// Gehe alle Tipps durch und finde heraus, wie Gross der Unterschied
+// Gehe alle Tipps durch und finde heraus, wie gross der Unterschied
 // zwischen den Tipps und den effektiven Resultaten ist
-while ($tipp = mysqli_fetch_array($tipps)) {
+while ($tipp = mysqli_fetch_row($tipps)) {
   // Wandle die Tipps in einen Array im folgenden Format um:
   // array( 'Guy Parmelin' => 135, 'Alain Berset' => 150)
-  $tipp_assoc = make_assoc_array($tipp, 2, 16);
+  $tipp_assoc = make_assoc_array($tipp, 2);
 
-  // Anfangs gehen wir von einem Unterschied von 0 aus
+  // Anfangs gehen wir von einem Unterschied von 0
+  // zwischen dem effektiven Resultat und dem aktuellen Tipp aus
   $difference = 0;
 
   // Dann prüfen wir jeden Bundesrat im Resultat
@@ -48,20 +50,24 @@ while ($tipp = mysqli_fetch_array($tipps)) {
   $tipp['difference'] = $difference;
 
   // Füge den Tipp, nachdem der Unterschied berechnet wurde,
-  // in das Ranking ein
-  $ranking[] = $tipp;
+  // in das rangliste ein
+  $rangliste[] = $tipp;
 }
 
 // Ordne die Rangliste Aufsteigende nach Unterschied
 // Je kleiner der Unterschied, desto früher kommt der Eintrag
-usort($ranking, function($a, $b) {
+// und desto höher ist der Rang
+usort($rangliste, function($a, $b) {
   return $a['difference'] - $b['difference'];
 });
 
-function make_assoc_array($original_array, $start_count, $end_count) {
+// Wandle das Ergebnis aus der Datenbank in einen assoziativen Array um
+// array( 'Guy Parmelin' => 135, 'Alain Berset' => 150)
+// Diese Funktion ist schon gegeben
+function make_assoc_array($original_array, $start_count) {
   $assoc_array = array();
 
-  for($i = $start_count; $i < $end_count; $i = $i + 2) {
+  for($i = $start_count; $i < count($original_array); $i = $i + 2) {
     $key = $original_array[$i];
     $value = $original_array[$i + 1];
 
@@ -71,19 +77,39 @@ function make_assoc_array($original_array, $start_count, $end_count) {
   return $assoc_array;
 }
 // ---------------------- VIEW ----------------------
-?>
 
-<table>
-  <thead>
-    <th>Rank</th>
-    <th>Differenz</th>
-    <th>Name</th>
-  </thead>
-  <?php foreach($ranking as $rank => $student): ?>
-  <tr>
-    <td><?php echo $rank + 1; ?></td>
-    <td><?php echo $student['difference']; ?></td>
-    <td><?php echo $student['firstname'] . ' ' . $student['lastname']; ?></td>
-  </tr>
-  <? endforeach; ?>
-</table>
+// Der Gewinner hat den kleinsten Unterschied
+// zwischen Tipp und Resultat
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Auswertung</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/control.css">
+  <script src="js/control.js"></script>
+</head>
+<body>
+  <table class="table">
+    <thead>
+      <th scope="col">Rank</th>
+      <th scope="col">Differenz</th>
+      <th scope="col">Name</th>
+    </thead>
+    <?php foreach($rangliste as $rank => $tipp) {
+      $user_id = $tipp[1];
+      $student = mysqli_fetch_assoc(get_user_by_id($user_id));
+    ?>
+    <tr>
+      <td><?php echo $rank + 1; ?></td>
+      <td><?php echo $tipp['difference']; ?></td>
+      <td><?php echo $student['vorname'] . ' ' . $student['nachname']; ?></td>
+    </tr>
+    <? } ?>
+  </table>
+</body>
+</html>
