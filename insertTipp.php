@@ -1,4 +1,5 @@
 <?php
+// ------------------- CONTROLLER -------------------
 session_start();
 require_once('system/data.php');
 

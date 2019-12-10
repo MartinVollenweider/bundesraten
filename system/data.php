@@ -80,13 +80,25 @@
 		return get_result($sql);
 	}
 
+	function get_the_resultate(){
+		$sql = "SELECT * FROM resultate;";
+		$result = get_result($sql);
+		return mysqli_fetch_array($result);
+	}
+
+	function get_all_tipps($class = "*"){
+		$sql = "SELECT tipps.*, firstname, lastname, year, class FROM tipps LEFT JOIN user ON tipps.user_id = user.id;";
+		return get_result($sql);
+	}
+
 	function does_tipp_exist($user_id) {
 		$sql = "SELECT * FROM tipps WHERE user_id = '$user_id';";
 		$result = get_result($sql);
 		if(mysqli_num_rows($result) > 0){
 			return true;
 		}
-		return false;	}
+		return false;
+	}
 
 	/* *******************************************************************************************************
 	/* Index

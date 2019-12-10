@@ -1,4 +1,5 @@
 <?php
+// ------------------- CONTROLLER -------------------
 $logged_in = false;
 $log_in_out_text = "Anmelden";
 
