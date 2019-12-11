@@ -29,7 +29,7 @@ while ($tipp = mysqli_fetch_row($tipps)) {
   $difference = 0;
 
   // Dann prüfen wir jeden Bundesrat im Resultat
-  foreach($resultate_assoc as $bundesrat => $stimmen) {
+  foreach($resultate_assoc as $bundesrat => $resultat_stimmen) {
     // Wieviele Stimmen sind getippt worden für den Bundesrat
     $tipp_stimmen = $tipp_assoc[$bundesrat];
 
@@ -43,7 +43,7 @@ while ($tipp = mysqli_fetch_row($tipps)) {
     // und den getippten Stimmen für den aktuellen Bundesrat
     // und wandle Werte mit einem Minus in positive Werte um
     // Bsp: Aus einem Unterschied von -24 wird 24
-    $difference = $difference + abs($tipp_stimmen - $stimmen);
+    $difference = $difference + abs($tipp_stimmen - $resultat_stimmen);
   }
 
   // Speichere den Unterschied im Tipp
@@ -99,6 +99,8 @@ function make_assoc_array($original_array, $start_count) {
       <th scope="col">Rank</th>
       <th scope="col">Differenz</th>
       <th scope="col">Name</th>
+      <th scope="col">Jahrgang</th>
+      <th scope="col">Klasse</th>
     </thead>
     <?php foreach($rangliste as $rank => $tipp) {
       $user_id = $tipp[1];
@@ -108,6 +110,8 @@ function make_assoc_array($original_array, $start_count) {
       <td><?php echo $rank + 1; ?></td>
       <td><?php echo $tipp['difference']; ?></td>
       <td><?php echo $student['vorname'] . ' ' . $student['nachname']; ?></td>
+      <td><?php echo $student['jahr']; ?></td>
+      <td><?php echo $student['klasse']; ?></td>
     </tr>
     <? } ?>
   </table>
